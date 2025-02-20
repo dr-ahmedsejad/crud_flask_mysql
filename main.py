@@ -2,11 +2,9 @@ import os
 
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 from flask_mysqldb import MySQL
-from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-CORS(app)  # Autorise toutes les origines
 
 # Configuration de la base de données
 app.config['MYSQL_HOST'] = 'localhost'
