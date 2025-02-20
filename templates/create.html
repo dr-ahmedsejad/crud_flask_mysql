@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un article</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome (optionnel pour les icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Créer un article</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" enctype="multipart/form-data" class="p-4 border rounded shadow-sm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nom :</label>
+                        <input type="text" id="name" name="name" class="form-control" required placeholder="Entrez le nom de l'article">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description :</label>
+                        <textarea id="description" name="description" class="form-control" rows="4" placeholder="Entrez la description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Catégorie :</label>
+                        <select id="category_id" name="category_id" class="form-select" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            {% for cat in categories %}
+                                <option value="{{ cat[0] }}">{{ cat[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image :</label>
+                        <input type="file" id="image" name="image" class="form-control">
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-save"></i> Créer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
